@@ -24,18 +24,12 @@ function buttonPlayer(btnId) {
         (btnId === 'btn-kertas' && randomChoice === 'btn-batu')
     ) {
         hasil.textContent = "Menang";
-        celebrateWin();
+
     } else {
         hasil.textContent = "Kalah";
     }
 }
 
-function celebrateWin() {
-    confetti({
-        particleCount: 200,
-        spread: 100,
-        origin: { y: 0.6 },
-    });
-}
+
 
 game();
