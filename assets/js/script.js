@@ -31,6 +31,9 @@ function buttonPlayer(btnId) {
 }
 
 function celebrateWin() {
+    const sound = new Audio('assets/audio/win.mp3');
+    sound.play();
+
     confetti({
         particleCount: 200,
         spread: 100,
