@@ -10,24 +10,32 @@ function game() {
 }
 
 function buttonPlayer(btnId) {
-    const hasil = document.getElementById('hasil')
+    const hasil = document.getElementById('hasil');
     const choices = ['btn-batu', 'btn-gunting', 'btn-kertas'];
     const randomChoice = choices[Math.floor(Math.random() * choices.length)];
-
     const imgBot = document.getElementById('img-bot');
     imgBot.src = `assets/images/${randomChoice}.png`;
 
     if (btnId === randomChoice) {
-        hasil.textContent = "Seri"
+        hasil.textContent = "Seri";
     } else if (
         (btnId === 'btn-batu' && randomChoice === 'btn-gunting') ||
         (btnId === 'btn-gunting' && randomChoice === 'btn-kertas') ||
         (btnId === 'btn-kertas' && randomChoice === 'btn-batu')
     ) {
-        hasil.textContent = "Menang"
+        hasil.textContent = "Menang";
+        celebrateWin();
     } else {
-        hasil.textContent = "Kalah"
+        hasil.textContent = "Kalah";
     }
+}
+
+function celebrateWin() {
+    confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 },
+    });
 }
 
 game();
